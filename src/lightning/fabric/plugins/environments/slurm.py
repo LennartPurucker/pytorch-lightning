@@ -109,6 +109,7 @@ class SLURMEnvironment(ClusterEnvironment):
         detected automatically.
 
         """
+        return False
         SLURMEnvironment._validate_srun_used()
         return _is_srun_used()
 

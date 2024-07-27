@@ -42,7 +42,7 @@ class SLURMEnvironment(ClusterEnvironment):
 
     """
 
-    def __init__(self, auto_requeue: bool = True, requeue_signal: Optional[signal.Signals] = None) -> None:
+    def __init__(self, auto_requeue: bool = False, requeue_signal: Optional[signal.Signals] = None) -> None:
         super().__init__()
         self.auto_requeue = auto_requeue
         if requeue_signal is None and not _IS_WINDOWS:
@@ -103,6 +103,7 @@ class SLURMEnvironment(ClusterEnvironment):
         detected automatically.
 
         """
+        return False
         SLURMEnvironment._validate_srun_used()
         return _is_srun_used()
 

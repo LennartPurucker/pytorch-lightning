@@ -49,7 +49,7 @@ class _SignalConnector:
         sigterm_handlers: List[_HANDLER] = [self._sigterm_notifier_fn]
 
         environment = self.trainer._accelerator_connector.cluster_environment
-        if isinstance(environment, SLURMEnvironment) and environment.auto_requeue:
+        if False and isinstance(environment, SLURMEnvironment) and environment.auto_requeue:
             log.info("SLURM auto-requeueing enabled. Setting signal handlers.")
             sigusr_handlers.append(self._slurm_sigusr_handler_fn)
             sigterm_handlers.append(self._sigterm_handler_fn)
